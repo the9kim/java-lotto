@@ -20,7 +20,7 @@ public class LottoTicket {
     public static LottoTicket of(List<List<Integer>> lottoTicket, int purchasingMoney, int purchasingAmount) {
         List<Lotto> lottos = new ArrayList<>();
         for (List<Integer> lotto : lottoTicket) {
-            lottos.add(Lotto.of(lotto));
+            lottos.add(Lotto.RandomLotto(lotto));
         }
         return new LottoTicket(lottos, purchasingMoney, purchasingAmount);
     }
