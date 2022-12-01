@@ -2,6 +2,7 @@ package lotto.controller;
 
 import lotto.domain.LottoMachine;
 import lotto.domain.LottoTicket;
+import lotto.view.OutputView;
 
 public class GameController {
 
@@ -16,6 +17,7 @@ public class GameController {
 
     private LottoTicket createLottoTicket() {
         LottoTicket lottoTicket = LottoMachine.makeLottoTicket(inputController.getPurchasingMoney());
-
+        OutputView.printLottoTicket(lottoTicket);
+        return lottoTicket;
     }
 }

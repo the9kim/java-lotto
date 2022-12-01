@@ -3,6 +3,7 @@ package lotto;
 import lotto.domain.LottoNumber;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
@@ -19,7 +20,14 @@ public class Lotto {
         }
         return new Lotto(lotto);
     }
-
+    public List<Integer> getSortedNumbers() {
+        List<Integer> sortedNumbers = new ArrayList<>();
+        for (LottoNumber number : numbers) {
+            sortedNumbers.add(number.getLottoNumber());
+        }
+        Collections.sort(sortedNumbers);
+        return sortedNumbers;
+    }
 
 
     private void validate(List<Integer> numbers) {
@@ -28,5 +36,4 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
 }

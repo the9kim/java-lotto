@@ -25,4 +25,7 @@ public class LottoNumber {
         return lottoNumberCache.get(lottoNumber);
     }
 
+    public Integer getLottoNumber() {
+        return lottoNumber;
+    }
 }

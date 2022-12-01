@@ -24,4 +24,16 @@ public class LottoTicket {
         }
         return new LottoTicket(lottos, purchasingMoney, purchasingAmount);
     }
+
+    public List<Lotto> getLottoTicket() {
+        return List.copyOf(lottoTicket);
+    }
+
+    public int getPurchasingMoney() {
+        return purchasingMoney;
+    }
+
+    public int getPurchasingAmount() {
+        return purchasingAmount;
+    }
 }
