@@ -17,7 +17,7 @@ public class LottoMachine {
         validateMoney(purchasingMoney);
         int purchasingAmount = convertMoneyToAmount(purchasingMoney);
         generateLottoTicket(purchasingAmount);
-        return LottoTicket.of(lottoTicket, purchasingMoney);
+        return LottoTicket.of(lottoTicket, purchasingMoney, purchasingAmount);
     }
 
     private static void validateMoney(int purchasingMoney) {
