@@ -37,6 +37,7 @@ public class Lotto {
     public void generateBonusNumber(int bonusNumber) {
         this.bonusNumber = BonusNumber.of(bonusNumber, numbers);
     }
+
     private static void validate(List<Integer> numbers) {
         validateSize(numbers);
         isDuplicated(numbers);

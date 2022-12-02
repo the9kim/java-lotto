@@ -2,13 +2,10 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class InputView {
 
     public static String readPurchasingMoney() {
-        System.out.print("구입 금액을 입력해주세요: ");
+        System.out.println("구입 금액을 입력해주세요: ");
         String purchasingMoney = Console.readLine();
         isBlank(purchasingMoney);
         isDigit(purchasingMoney);
@@ -51,6 +48,7 @@ public class InputView {
         isDigitAndComma(input);
 
     }
+
     private static void validateStartsAndEnds(String input) {
         if (input.startsWith(",") || input.endsWith(",")) {
             throw new IllegalArgumentException("[ERROR] 처음과 끝을 콤마로 입력할 수 없습니다.");

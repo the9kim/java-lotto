@@ -13,7 +13,7 @@ public class OutputView {
     }
 
     private static void printLottoPurchasingAmount(LottoTicket lottoTicket) {
-        System.out.printf("%s개 구매했습니다.\n", lottoTicket.getPurchasingAmount());
+        System.out.printf("%s개를 구매했습니다.\n", lottoTicket.getPurchasingAmount());
     }
 
     private static void printLotto(LottoTicket lottoTicket) {
@@ -58,7 +58,7 @@ public class OutputView {
         stringBuilder.append(String.format(" (%,d원)", rank.getPrize()));
     }
 
-    private static void addWinnerCount(StringBuilder stringBuilder,Rank rank, Result result) {
+    private static void addWinnerCount(StringBuilder stringBuilder, Rank rank, Result result) {
         stringBuilder.append(String.format(" - %,d개\n", result.getWinnerCounter().get(rank)));
     }
 

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,9 +19,9 @@ class LottoTicketTest {
         List<Integer> thirdRankNum = List.of(1, 2, 3, 4, 5, 8);
         List<Integer> fourthRankNum = List.of(1, 2, 3, 4, 9, 10);
         List<Integer> fifthRankNum = List.of(1, 2, 3, 11, 12, 13);
-        List<Integer> loser1 = List.of(1,2,13,14,15,16);
-        List<Integer> loser2 = List.of(1,12,13,14,15,16);
-        List<Integer> loser3 = List.of(11,12,13,14,15,16);
+        List<Integer> loser1 = List.of(1, 2, 13, 14, 15, 16);
+        List<Integer> loser2 = List.of(1, 12, 13, 14, 15, 16);
+        List<Integer> loser3 = List.of(11, 12, 13, 14, 15, 16);
 
         List<List<Integer>> ticketNumber = List.of(firstRankNum, secondRankNum,
                 thirdRankNum, fourthRankNum, fifthRankNum, loser1, loser2, loser3);

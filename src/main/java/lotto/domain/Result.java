@@ -17,7 +17,7 @@ public class Result {
     }
 
     public void updateWinnerCount(Rank rank) {
-        winnerCounter.put(rank, winnerCounter.get(rank)+1);
+        winnerCounter.put(rank, winnerCounter.get(rank) + 1);
     }
 
     public void updatePrize(Rank rank) {
@@ -33,7 +33,7 @@ public class Result {
     }
 
     public void updateProfitRatio(int purchasingMoney) {
-        profitRatio = purchasingMoney / accumulatedPrize * 100;
+        profitRatio = (double) accumulatedPrize / purchasingMoney * 100;
     }
 
     public double getProfitRatio() {

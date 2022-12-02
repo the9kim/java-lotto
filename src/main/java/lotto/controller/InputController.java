@@ -12,7 +12,7 @@ public class InputController {
             try {
                 String purchasingMoney = InputView.readPurchasingMoney();
                 return Integer.parseInt(purchasingMoney);
-            } catch(IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -23,7 +23,7 @@ public class InputController {
             try {
                 String winningNumber = InputView.readWinningNumber();
                 return convertType(winningNumber);
-            } catch(IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -34,13 +34,14 @@ public class InputController {
             try {
                 String bonusNumber = InputView.readBonusNumber();
                 return Integer.parseInt(bonusNumber);
-            } catch(IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
 
 
     }
+
     private List<Integer> convertType(String input) {
         List<Integer> winningNumber = new ArrayList<>();
         String[] numberArray = input.split(",");
@@ -49,7 +50,4 @@ public class InputController {
         }
         return winningNumber;
     }
-
-
-
 }

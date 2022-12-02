@@ -1,9 +1,9 @@
 package lotto.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class LottoMachine {
 
@@ -43,7 +43,7 @@ public class LottoMachine {
     }
 
     private static void generateLottoTicket(int purchasingAmount) {
-        for (int i = 0 ; i < purchasingAmount; i++) {
+        for (int i = 0; i < purchasingAmount; i++) {
             lottoTicket.add(generateRandomNumber());
         }
     }

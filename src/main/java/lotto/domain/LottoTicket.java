@@ -66,10 +66,6 @@ public class LottoTicket {
         return List.copyOf(lottoTicket);
     }
 
-    public int getPurchasingMoney() {
-        return purchasingMoney;
-    }
-
     public int getPurchasingAmount() {
         return purchasingAmount;
     }

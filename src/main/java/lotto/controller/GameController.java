@@ -8,7 +8,7 @@ import lotto.view.OutputView;
 
 public class GameController {
 
-    InputController inputController;
+    InputController inputController = new InputController();
 
     public void run() {
         LottoTicket lottoTicket = createLottoTicket();
