@@ -46,6 +46,7 @@ public class InputView {
         validateStartsAndEnds(input);
         isDuplicationOfComma(input);
         isDigitAndComma(input);
+        isLength(input);
 
     }
 
@@ -66,6 +67,12 @@ public class InputView {
             if (!Character.isDigit(input.charAt(i)) && input.charAt(i) != ',') {
                 throw new IllegalArgumentException("[ERROR] 숫자와 콤마 외에 입력할 수 없습니다.");
             }
+        }
+    }
+
+    private static void isLength(String input) {
+        if (input.length() != 12) {
+            throw new IllegalArgumentException("[ERROR] 6자리 숫자를 콤마로 구분하여 입력하세요.");
         }
     }
 }

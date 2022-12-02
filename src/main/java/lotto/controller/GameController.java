@@ -11,6 +11,7 @@ public class GameController {
     InputController inputController = new InputController();
 
     public void run() {
+
         LottoTicket lottoTicket = createLottoTicket();
         Lotto winningLotto = generateWinningLottery();
         Result result = pickWinners(lottoTicket, winningLotto);
@@ -18,14 +19,14 @@ public class GameController {
     }
 
     private LottoTicket createLottoTicket() {
-        LottoTicket lottoTicket = LottoMachine.makeLottoTicket(inputController.getPurchasingMoney());
+        LottoTicket lottoTicket = inputController.getPurchasingMoney();
         OutputView.printLottoTicket(lottoTicket);
         return lottoTicket;
     }
 
     private Lotto generateWinningLottery() {
-        Lotto winningLotto = Lotto.winningLotto(inputController.getWinningNumber());
-        winningLotto.generateBonusNumber(inputController.getBonusNumber());
+        Lotto winningLotto = inputController.getWinningNumber();
+        inputController.getBonusNumber(winningLotto);
         return winningLotto;
     }
 
