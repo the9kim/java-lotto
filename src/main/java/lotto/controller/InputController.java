@@ -29,7 +29,7 @@ public class InputController {
         }
     }
 
-    public Integer getBonusNumber() {
+    public int getBonusNumber() {
         while (true) {
             try {
                 String bonusNumber = InputView.readBonusNumber();

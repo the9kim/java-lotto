@@ -11,7 +11,7 @@ public class BonusNumber {
     }
 
     public static BonusNumber of(int bonusNumber, List<LottoNumber> winningNumbers) {
-        LottoNumber bonusLottoNumber = LottoNumber.of(bonusNumber);
+        LottoNumber bonusLottoNumber = LottoNumber.winningNumber(bonusNumber);
         isDuplicated(bonusLottoNumber, winningNumbers);
         return new BonusNumber(bonusLottoNumber);
     }

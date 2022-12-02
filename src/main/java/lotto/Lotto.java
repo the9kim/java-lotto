@@ -20,7 +20,7 @@ public class Lotto {
     public static Lotto RandomLotto(List<Integer> numbers) {
         List<LottoNumber> lotto = new ArrayList<>();
         for (Integer number : numbers) {
-            lotto.add(LottoNumber.of(number));
+            lotto.add(LottoNumber.randomNumber(number));
         }
         return new Lotto(lotto);
     }
@@ -29,7 +29,7 @@ public class Lotto {
         List<LottoNumber> lotto = new ArrayList<>();
         validate(numbers);
         for (Integer number : numbers) {
-            lotto.add(LottoNumber.of(number));
+            lotto.add(LottoNumber.winningNumber(number));
         }
         return new Lotto(lotto);
     }
@@ -52,6 +52,10 @@ public class Lotto {
         if (numbers.size() != Set.copyOf(numbers).size()) {
             throw new IllegalArgumentException("[ERROR] 중복된 수는 입력할 수 없습니다.");
         }
+    }
+
+    public List<LottoNumber> getNumbers() {
+        return numbers;
     }
 
     public List<Integer> getSortedNumbers() {

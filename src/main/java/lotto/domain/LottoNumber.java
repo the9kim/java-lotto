@@ -21,7 +21,11 @@ public class LottoNumber {
         this.lottoNumber = lottoNumber;
     }
 
-    public static LottoNumber of(Integer lottoNumber) {
+    public static LottoNumber randomNumber(Integer lottoNumber) {
+        return lottoNumberCache.get(lottoNumber);
+    }
+
+    public static LottoNumber winningNumber(Integer lottoNumber) {
         validateRange(lottoNumber);
         return lottoNumberCache.get(lottoNumber);
     }

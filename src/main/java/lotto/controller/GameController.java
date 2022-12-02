@@ -3,9 +3,8 @@ package lotto.controller;
 import lotto.Lotto;
 import lotto.domain.LottoMachine;
 import lotto.domain.LottoTicket;
+import lotto.domain.Result;
 import lotto.view.OutputView;
-
-import java.util.List;
 
 public class GameController {
 
@@ -14,8 +13,8 @@ public class GameController {
     public void run() {
         LottoTicket lottoTicket = createLottoTicket();
         Lotto winningLotto = generateWinningLottery();
-        // pickWinners();
-        // printResult();
+        Result result = pickWinners(lottoTicket, winningLotto);
+        printResult(result);
     }
 
     private LottoTicket createLottoTicket() {
@@ -25,10 +24,17 @@ public class GameController {
     }
 
     private Lotto generateWinningLottery() {
-        List<Integer> winningNumber = inputController.getWinningNumber();
-        Lotto winningLotto = Lotto.winningLotto(winningNumber);
-        int bonusNumber = inputController.getBonusNumber();
-        winningLotto.generateBonusNumber(bonusNumber);
+        Lotto winningLotto = Lotto.winningLotto(inputController.getWinningNumber());
+        winningLotto.generateBonusNumber(inputController.getBonusNumber());
         return winningLotto;
+    }
+
+    private Result pickWinners(LottoTicket lottoTicket, Lotto winningLotto) {
+        Result result = lottoTicket.pickWinningNumber(winningLotto);
+        return result;
+    }
+
+    private void printResult(Result result) {
+        OutputView.printWinningResult(result);
     }
 }
