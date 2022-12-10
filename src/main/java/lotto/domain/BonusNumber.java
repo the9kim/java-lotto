@@ -12,8 +12,15 @@ public class BonusNumber {
     }
 
     public static BonusNumber of(Lotto lotto, int bonusNumber) {
+        validateRange(bonusNumber);
         validateDuplication(lotto, bonusNumber);
         return new BonusNumber(lotto, bonusNumber);
+    }
+
+    private static void validateRange(int bonusNumber) {
+        if (bonusNumber < 1 || bonusNumber > 45) {
+            throw new IllegalArgumentException("[ERROR] 1-45 범위를 벗어난 숫자입니다.");
+        }
     }
 
     private static void validateDuplication(Lotto lotto, int bonusNumber) {

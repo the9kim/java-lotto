@@ -12,6 +12,7 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         validateSize(numbers);
+        validateRange(numbers);
         validateDuplication(numbers);
 
     }
@@ -19,6 +20,14 @@ public class Lotto {
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException("[ERROR] 6자리 숫자가 아닙니다.");
+        }
+    }
+
+    private void validateRange(List<Integer> numbers) {
+        for (int number : numbers) {
+            if (number < 1 || number > 45) {
+                throw new IllegalArgumentException("[ERROR] 1-45 범위를 벗어난 숫자입니다.");
+            }
         }
     }
 
