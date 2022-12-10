@@ -11,7 +11,8 @@ public class InputController {
             try {
                 String input = InputView.readPurchasingAmount();
                 return LottoMachine.makeTicket(Integer.parseInt(input));
-            } catch () {
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

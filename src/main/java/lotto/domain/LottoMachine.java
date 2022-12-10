@@ -5,14 +5,30 @@ import java.util.List;
 
 public class LottoMachine {
 
-    List<List<Integer>> lottoTicket = new ArrayList<>();
+
+    private static final int LOTTO_PRICE = 1000;
+    private static LottoGenerator lottoGenerator;
+    private static List<List<Integer>> lottoTicket = new ArrayList<>();
+
     public static LottoTicket makeTicket(int purchasingMoney) {
         validate(purchasingMoney);
+        generateRandomNumber(purchasingMoney);
+        return LottoTicket.of(lottoTicket, purchasingMoney);
     }
 
     private static void validate(int purchasingMoney) {
         validateRange(purchasingMoney);
         validateUnit(purchasingMoney);
+    }
+
+    private static void generateRandomNumber(int purchasingMoney) {
+        int purchasingAmount = purchasingMoney / LOTTO_PRICE;
+        lottoGenerator = new RandomNumberGenerator();
+        for (int amount = 0; amount < purchasingAmount; amount++) {
+            List<Integer> lottoNumber = lottoGenerator.generate();
+            lottoTicket.add(lottoNumber);
+        }
+
     }
 
     private static void validateRange(int purchasingMoney) {
