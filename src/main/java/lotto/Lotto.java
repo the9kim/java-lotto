@@ -1,8 +1,15 @@
 package lotto;
 
+import lotto.domain.BonusNumber;
+import lotto.domain.LottoTicket;
+import lotto.domain.Rank;
+import lotto.domain.Result;
+
 import java.util.List;
 
 public class Lotto {
+
+    private static final int BONUS_COUNT = 5;
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -41,6 +48,33 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return numbers;
+    }
+
+    public Result checkWinner(LottoTicket lottoTicket, BonusNumber bonusNumber, Result result) {
+        for (List<Integer> lottoNumber : lottoTicket.getLottoNumbers()) {
+            int winningCount = getCount(lottoNumber);
+            boolean isBonusNumber = checkBonusNumber(lottoNumber, winningCount, bonusNumber);
+            result.updateWinner(Rank.findBy(winningCount, isBonusNumber), isBonusNumber);
+        }
+        return result;
+    }
+
+
+    private int getCount(List<Integer> lottoNumber) {
+        int winningCount = 0;
+        for (Integer number : numbers) {
+            if (lottoNumber.contains(number)) {
+                winningCount++;
+            }
+        }
+        return winningCount;
+    }
+
+    private boolean checkBonusNumber(List<Integer> lottoNumber, int winningCount, BonusNumber bonusNumber) {
+        if (winningCount == BONUS_COUNT && lottoNumber.contains(bonusNumber.getBonusNumber())) {
+            return true;
+        }
+        return false;
     }
 
 // TODO: 추가 기능 구현
