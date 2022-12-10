@@ -7,7 +7,7 @@ import java.io.StringReader;
 public class InputView {
 
     public static String readPurchasingAmount() {
-        System.out.println("구입 금액을 입력해주세요");
+        System.out.println("구입 금액을 입력해주세요.");
         String input = Console.readLine();
         isBlank(input);
         isDigit(input);

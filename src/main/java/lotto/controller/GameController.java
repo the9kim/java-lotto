@@ -18,6 +18,7 @@ public class GameController {
         Lotto lotto = getWinningLotto();
         BonusNumber bonusNumber = getBonusNumber(lotto);
         Result result = getWinner(lottoTicket, lotto, bonusNumber);
+        OutputView.printResult(result);
     }
 
     private LottoTicket generateLottoTicket() {
@@ -39,8 +40,6 @@ public class GameController {
     private Result getWinner(LottoTicket lottoTicket, Lotto lotto, BonusNumber bonusNumber) {
         Result result = new Result();
         result = lotto.checkWinner(lottoTicket, bonusNumber, result);
-        System.out.println(result.getResultMap());
-        System.out.println(result.getProfitRatio());
         return result;
     }
 }

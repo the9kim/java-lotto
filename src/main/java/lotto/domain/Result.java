@@ -21,7 +21,7 @@ public class Result {
 
     public void updateProfitRatio(Rank rank, int purchasingMoney) {
         accumulatedPrize += rank.getPrize();
-        profitRatio = accumulatedPrize / purchasingMoney * 100;
+        profitRatio = (double) accumulatedPrize / (double) purchasingMoney * 100;
 
     }
 
