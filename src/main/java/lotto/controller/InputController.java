@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import lotto.Lotto;
+import lotto.domain.BonusNumber;
 import lotto.domain.LottoMachine;
 import lotto.domain.LottoTicket;
 import lotto.view.InputView;
@@ -24,7 +25,7 @@ public class InputController {
     public Lotto getWinningNumber() {
         while (true) {
             try {
-                String[] winningNumber = InputView.readWinningNumber().split("");
+                String[] winningNumber = InputView.readWinningNumber().split(",");
                 return new Lotto(setFormat(winningNumber));
             } catch (IllegalArgumentException e2) {
                 System.out.println(e2.getMessage());
@@ -40,11 +41,10 @@ public class InputController {
         return winningNumber;
     }
 
-    public void getBonusNumber(Lotto lotto) {
+    public BonusNumber getBonusNumber(Lotto lotto) {
         while (true) {
             try {
-                String input = InputView.readBonusNumber();
-                lotto.setBonusNumber(Integer.parseInt(input));
+                return BonusNumber.of(lotto, Integer.parseInt(InputView.readBonusNumber()));
             } catch (IllegalArgumentException e3) {
                 System.out.println(e3.getMessage());
             }
