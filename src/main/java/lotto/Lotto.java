@@ -54,7 +54,8 @@ public class Lotto {
         for (List<Integer> lottoNumber : lottoTicket.getLottoNumbers()) {
             int winningCount = getCount(lottoNumber);
             boolean isBonusNumber = checkBonusNumber(lottoNumber, winningCount, bonusNumber);
-            result.updateWinner(Rank.findBy(winningCount, isBonusNumber), isBonusNumber);
+            result.updateWinner(Rank.findBy(winningCount, isBonusNumber));
+            result.updateProfitRatio(Rank.findBy(winningCount, isBonusNumber), lottoTicket.getPurchasingMoney());
         }
         return result;
     }

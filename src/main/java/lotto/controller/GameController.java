@@ -40,6 +40,7 @@ public class GameController {
         Result result = new Result();
         result = lotto.checkWinner(lottoTicket, bonusNumber, result);
         System.out.println(result.getResultMap());
+        System.out.println(result.getProfitRatio());
         return result;
     }
 }

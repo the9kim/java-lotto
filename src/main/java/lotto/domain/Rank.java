@@ -7,7 +7,8 @@ public enum Rank {
     FOURTH(4, 50000, false),
     THIRD(5, 1500000, false),
     SECOND(5, 30000000, true),
-    FIRST(6, 2000000000, false);
+    FIRST(6, 2000000000, false),
+    Else(0, 0, false);
 
     int winningNumber;
     int prize;
@@ -23,7 +24,10 @@ public enum Rank {
         return Arrays.stream(Rank.values())
                 .filter(rank -> rank.winningNumber == winningNumber && rank.isBonusNumber == isBonusNumber)
                 .findAny()
-                .orElseThrow(() -> new IllegalArgumentException());
+                .orElse(Rank.Else);
     }
 
+    public int getPrize() {
+        return prize;
+    }
 }
