@@ -2,8 +2,6 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.io.StringReader;
-
 public class InputView {
 
     public static String readPurchasingAmount() {
@@ -45,6 +43,7 @@ public class InputView {
         }
 
     }
+
     private static void validateDigitAndComma(String input) {
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) != ',' && !Character.isDigit(input.charAt(i))) {

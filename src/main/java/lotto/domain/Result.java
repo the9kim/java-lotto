@@ -9,6 +9,7 @@ public class Result {
     private int accumulatedPrize;
     private double profitRatio;
     private static Map<Rank, Integer> resultMap = new LinkedHashMap<>();
+
     static {
         for (Rank rank : Rank.values()) {
             resultMap.put(rank, DEFAULT_WINNER);

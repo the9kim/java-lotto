@@ -39,7 +39,7 @@ public class Lotto {
     }
 
     private void validateDuplication(List<Integer> numbers) {
-        for (int i = 0; i < numbers.size()-1; i++) {
+        for (int i = 0; i < numbers.size() - 1; i++) {
             if (numbers.subList(i + 1, numbers.size()).contains(numbers.get(i))) {
                 throw new IllegalArgumentException("[ERROR] 중복 숫자는 입력할 수 없습니다.");
             }
